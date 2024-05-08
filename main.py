@@ -2,7 +2,6 @@ def recibir_datos():
     ciclistas = []
     print("Introduce los datos de los ciclistas o escribe 'menu' para finalizar la entrada de datos y acceder al menú.")
     while True:
-        #identacion
         codigo = input("Ingresa el código del ciclista (o 'menu' para terminar): ")
         if codigo.lower() == 'menu':
             break
@@ -10,15 +9,12 @@ def recibir_datos():
         edad = input("Ingresa la edad del ciclista: ")
         pais = input("Ingresa el país del ciclista: ")
         equipo = input("Ingresa el equipo del ciclista: ")
-        #input corregido (mal copiado)
         tiempo = float(input("Ingresa el tiempo (en minutos) de la última prueba: "))
-        #comas agregadas
         ciclistas.append((codigo, nombre, edad, pais, equipo, tiempo))
     return ciclistas
 
 def mostrarTabla(ciclistas):
     print("Tabla de Posiciones:")
-    #ciclista corregido (mal copiado)
     for ciclistas in sorted(ciclistas, key=lambda x: x[5]):  # Ordena por tiempo
         print(f'Código: {ciclistas[0]}, Nombre: {ciclistas[1]}, Edad: {ciclistas[2]}, País: {ciclistas[3]}, Equipo: {ciclistas[4]}, Tiempo: {ciclistas[5]} min')
 
@@ -31,7 +27,6 @@ def corregir_tiempo(ciclistas, codigo, nuevo_tiempo):
     print("Código no encontrado.")
 
 def retirar_ciclista(ciclistas, codigo):
-    #length corregido por len
     for i in range(len(ciclistas)):
         if ciclistas[i][0] == codigo:
             del ciclistas[i]
@@ -41,13 +36,10 @@ def retirar_ciclista(ciclistas, codigo):
 
 def main():
     ciclistas = recibir_datos()
-    #true  corregido (minuscula)
     while True:
         accion = input("¿Qué deseas hacer? (mostrar, corregir, retirar, salir): ")
         if accion.lower() == 'mostrar':
-            #nombre funcion corregida
             mostrarTabla(ciclistas)
-        #identacion corregida de los elif 
         elif accion.lower() == 'corregir':
             codigo = input("Ingresa el código del ciclista a corregir: ")
             nuevo_tiempo = float(input("Ingresa el nuevo tiempo (minutos): "))
@@ -61,5 +53,5 @@ def main():
         else:
             print("Opción no válida. Por favor, intenta nuevamente.")
 
-#llamada de funcion 
+
 main()
